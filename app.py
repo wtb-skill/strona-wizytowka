@@ -6,17 +6,20 @@ app = Flask(__name__)
 
 
 @app.route('/mypage/me', methods=['GET'])
-def visit_me():
+def display_me():
+    """Display information about the user on the 'Me' page."""
     return render_template("strona-wizytowka-me.html")
 
 
 @app.route('/mypage/contact', methods=['GET'])
-def visit_contact():
+def display_contact():
+    """Display the contact form on the 'Contact' page."""
     return render_template("strona-wizytowka-contact.html")
 
 
 @app.route('/mypage/contact', methods=['POST'])
 def user_comment():
+    """Handle user comments from the contact form and save them to a JSON file."""
     user_name = request.form['usrname']
     user_text = request.form['comment']
 
