@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request, redirect
+import json
+from datetime import datetime as dt
 
 app = Flask(__name__)
 
@@ -13,39 +15,33 @@ def visit_contact():
     return render_template("strona-wizytowka-contact.html")
 
 
-# @app.route('/hello')
-# def hello():
-#     my_name = "John"
-#     return f'Hello, {my_name}!'
-#
-#
-# @app.route('/blog', methods=['GET'])
-# def blog_main():
-#     return f"This is a main blog page"
-#
-#
-# @app.route('/blog/<_id>')
-# def blog(_id):
-#     return f"This is blog entry #{_id}"
-#
-#
-# @app.route('/message', methods=['GET', 'POST'])
-# def message():
-#     if request.method == 'GET':
-#         print("We received GET")
-#         return render_template("form.html")
-#     elif request.method == 'POST':
-#         print("We received POST")
-#         print(request.form)
-#         return redirect("/")
-#
-#
-# @app.route("/warehouse")
-# def warehouse():
-#     items = ["screwdriver", "hammer", "saw"]
-#     text = "Przykładowy tekst"
-#     errors = ["hammer is broken!"]
-#     return render_template("warehouse.html", items=items, text=text, errors=errors)
+@app.route('/mypage/contact', methods=['POST'])
+def user_comment():
+    user_name = request.form['usrname']
+    user_text = request.form['comment']
+
+    existing_data = []
+    try:
+        with open('user_comments.json', 'r') as json_file:
+            existing_data = json.load(json_file)
+    except FileNotFoundError:
+        with open('user_comments.json', 'w') as json_file:
+            json.dump(existing_data, json_file)
+
+    date = dt.today()
+
+    data = {
+        "user_name": user_name,
+        "user_text": user_text,
+        "date": date.strftime('%Y-%m-%d %H:%M:%S')
+    }
+
+    existing_data.append(data)
+
+    with open('user_comments.json', 'w') as json_file:
+        json.dump(existing_data, json_file, indent=4)
+
+    return redirect("/mypage/contact")
 
 
 if __name__ == '__main__':

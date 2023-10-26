@@ -1,9 +1,9 @@
 :root {
     --background-color: #DDD0C8;
     --text-color: #323232;
-    --primary-color: #DCCAC0;
-    --secondary-color: #323232;
-    --accent-color: green;
+    --primary-color: #D2B48C;
+    --secondary-color: #556B2F;
+    --accent-color: #B28E72;
 }
 
 span.bold-text {
@@ -46,4 +46,20 @@ h1, h2 {
 
 h2 {
     margin-bottom: -50px;
+}
+
+.btn {
+    max-width: 75%;
+    float: right; /* Align the button to the right */
+    padding: 10px 20px;
+    background-color: var(--accent-color);
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--primary-color);
 }

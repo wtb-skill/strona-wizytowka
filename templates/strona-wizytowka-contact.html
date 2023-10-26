@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
+{% extends "strona-wizytowka-base.html" %}
+{% block head %}
     <title>Contact</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet">
-</head>
-<body>
-    <h1>Witaj na mojej stronie domowej</h1>
-    <img id="profile-image" src="https://i2-prod.chroniclelive.co.uk/incoming/article17939823.ece/ALTERNATES/s810/0_Rowan-Atkinson-Comedian-actor.jpg" alt="Rowan Atkinson" title="Enjoy!">
+{% endblock %}
+
+{% block content %}
     <h2>Kontakt</h2>
     <div id="text-container">
     <ul>
@@ -18,7 +11,7 @@
         <li><span class="bold-text">telefon</span>: 500 600 700</li>
     </ul>
     <h3>Wyślij wiadomość</h3>
-    <form action="" id="usrform">
+    <form action="/mypage/contact" method="POST" id="usrform">
         <label for="usrname">Imię:</label>
         <input type="text" id="usrname" name="usrname" required>
         <br>
@@ -29,5 +22,5 @@
         <button type="submit" id="submit-btn">Prześlij</button>
     </form>
     </div>
-</body>
-</html>
+    <a href="{{ url_for('visit_me') }}" class="btn">Przenieś mnie do 'O mnie'</a>
+{% endblock %}

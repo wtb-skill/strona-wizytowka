@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
+{% extends "strona-wizytowka-base.html" %}
+{% block head %}
     <title>Me</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet">
-</head>
-<body>
-    <h1>Witaj na mojej stronie domowej</h1>
-    <img id="profile-image" src="https://i2-prod.chroniclelive.co.uk/incoming/article17939823.ece/ALTERNATES/s810/0_Rowan-Atkinson-Comedian-actor.jpg" alt="Rowan Atkinson" title="Enjoy!">
+{% endblock %}
+
+{% block content %}
     <h2>O mnie</h2>
     <div id="text-container">
     <p><span class="bold-text">Imię:</span> Rowan</p>
@@ -24,5 +17,5 @@
     <p><span class="bold-text">Życie Prywatne:</span> Mam dwie udane relacje małżeńskie za sobą i jestem szczęśliwym ojcem trójki dzieci. Jestem osobą, która ceni prywatność i unika mediów, kiedy nie jestem na scenie.</p>
     <p><span class="bold-text">Pasje:</span> Poza aktorstwem, jestem pasjonatem motoryzacji i posiadam imponującą kolekcję samochodów.</p>
     </div>
-</body>
-</html>
+    <a href="{{ url_for('visit_contact') }}" class="btn">Przenieś mnie do 'Kontakt'</a>
+{% endblock %}
