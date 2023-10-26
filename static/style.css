@@ -1,0 +1,49 @@
+:root {
+    --background-color: #DDD0C8;
+    --text-color: #323232;
+    --primary-color: #DCCAC0;
+    --secondary-color: #323232;
+    --accent-color: green;
+}
+
+span.bold-text {
+    font-weight: bold;
+}
+
+#profile-image {
+    max-width: 50%;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    margin: 20px auto;
+    display: block; /* Set it as a block-level element */
+}
+
+#text-container {
+    max-width: 75%;
+    text-align: justify;
+    padding: 20px; /* Add padding for consistent spacing */
+    border: 2px solid transparent;
+    border-radius: 10px; /* Add rounded corners to the text container */
+    margin: 20px auto; /* Center align the text container */
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Caveat', cursive;
+}
+
+h1, h2 {
+    max-width: 75%;
+    text-align: center;
+    border: 2px solid transparent;
+    background: linear-gradient(90deg, #333, #DDD0C8);
+    background-clip: content-box;
+    padding: 10px; /* Add padding for the header */
+    border-radius: 10px; /* Add rounded corners to the header */
+    margin: 20px auto; /* Center align the header */
+}
+
+h2 {
+    margin-bottom: -50px;
+}
